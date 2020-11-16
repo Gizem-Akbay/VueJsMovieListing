@@ -13,10 +13,6 @@
 </template>
 <script>
     export default {
-        computed: {
-            not_found () {
-             return this.$store.getters.movies.length === 0 && !this.$store.getters.is_loading;
-            }
-        }
+        props:["search","not_found"],
     }
 </script>

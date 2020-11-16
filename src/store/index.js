@@ -6,27 +6,34 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        is_loading: false,
+        mode: 'all',
         movies: []
     },
     mutations: {
         init_movies(state, movies) {
             state.movies = movies;
+            state.is_loading = false;
         },
         clear_movies(state) {
             state.movies = [];
+            state.is_loading = false;
+        },
+        change_mode(state, mode) {
+            state.mode = mode;
+            this.dispatch('get_movies');
+        },
+        loading_status(state, status) {
+            state.is_loading = status;
         }
     },
     actions: {
-        test() {
-            MovieService.test()
-                .then(resp => {
-                    console.log('+++++', resp);
-                });
-        },
         get_movies({
-            commit
+            commit,
+            state
         }, val = "") {
-            MovieService.get_title(val)
+            state.is_loading = true;
+            MovieService.get_movies(val, state.mode)
                 .then(resp => {
                     if (resp.data.data.movie_count > 0) {
                         commit('init_movies', resp.data.data.movies);
@@ -37,6 +44,12 @@ export default new Vuex.Store({
         }
     },
     getters: {
+        is_loading(state) {
+            return state.is_loading;
+        },
+        mode(state) {
+            return state.mode;
+        },
         movies(state) {
             return state.movies;
         },

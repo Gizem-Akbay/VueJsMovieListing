@@ -16,7 +16,7 @@
                 <i class="fas fa-list-ol"></i>
                 </a>
             </li>
-            <li @click="search_mode = !search_mode">
+            <li @click="newSearchMode = !newSearchMode">
                 <a>
                 <i class="fas fa-search"></i>
                 </a>
@@ -26,5 +26,16 @@
 </template>
 <script>
     export default {
+    props: ["search_mode"],
+    computed: {
+        newSearchMode: {
+            get: function(){
+                return this.search_mode;
+            },
+            set: function(newMode){
+                this.$emit('update:search_mode',newMode);
+            }   
+        }
     }
+}
 </script>

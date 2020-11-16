@@ -8,8 +8,8 @@
             <transition name="fade">
                 <div v-show="search_mode" class="search-bar">
                     <div class="ui massive icon input">
-                        <i @click="search_mode = false;" class="fas fa-times-circle"></i>
-                        <input v-model="search" type="text" placeholder="Search movie..">
+                        <i @click="search_mode = false;"></i>
+                        <input class="search-input" v-model="search" type="text" placeholder="Search movie..">
                     </div>
                 </div>
             </transition>

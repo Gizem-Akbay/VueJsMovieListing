@@ -119,7 +119,9 @@ aside li a {
     width: 100%;
     object-fit: cover;
 }
-
+.search-bar {
+    background-color:#141414;
+}
 .relative {
     position: relative;
 }
@@ -183,6 +185,9 @@ aside li a {
 
 .box img {
     border-radius: 2px;
+}
+.not-found{
+    object-fit:contain;
 }
 
 @media(max-width: 900px) {

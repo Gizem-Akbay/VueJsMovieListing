@@ -41,10 +41,10 @@ export default new Vuex.Store({
             return state.movies;
         },
         title_movie(state) {
-            return state.movies[0];
+            return state.movies[1];
         },
-        imdb_rate (state) {
-            return state.movies[0].rating;
+        imdb_rate(state) {
+            return state.movies[1].rating;
         }
     }
 })

@@ -1,20 +1,13 @@
 <template>
     <div>
-        <div>
-            <appSlider></appSlider>
-            <appFooter></appFooter>
-        </div>
+        <appSlider></appSlider>
     </div>
 </template>
 <script>
-    //import Navbar from "./Navbar";
     import Slider from "./Slider";
-    import Footer from "./Footer";
     export default {
     name: 'Home',
         components: {
-            //appNavbar: Navbar,
-            appFooter: Footer,
             appSlider:Slider
         }
     }

@@ -28,20 +28,17 @@ export default new Vuex.Store({
         }
     },
     actions: {
-        get_movies({
-            commit,
-            state
-        }, val = "") {
-            state.is_loading = true;
-            MovieService.get_movies(val, state.mode)
-                .then(resp => {
-                    if (resp.data.data.movie_count > 0) {
-                        commit('init_movies', resp.data.data.movies);
-                    } else {
-                        commit('clear_movies');
-                    }
-                });
-        }
+    get_movies ({commit, state}, val = "") {
+      state.is_loading = true;
+      MovieService.get_movies(val, state.mode)
+          .then(resp => {
+              if (resp.data.data.movie_count > 0) {
+                  commit('init_movies', resp.data.data.movies);
+              } else {
+                  commit('clear_movies');
+              }
+          });
+    }
     },
     getters: {
         is_loading(state) {

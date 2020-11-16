@@ -40,16 +40,18 @@
                             <span style="color: #636262; padding-left: 1em">{{$store.getters.title_movie.genres.join(',')}}</span>
                             <p style="margin-top: 20px; max-width: 400px; ">{{$store.getters.title_movie.summary}}</p>
                             <button class="ui secondary right labeled icon button">
-                            <i class="fas fa-play"></i> Watch Trailler
+                            <i class="fas fa-play"></i>Watch Trailler
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <appMovieList :search="search" :not_found="not_found"></appMovieList>
     </div>
 </template>
 <script>
+    import MovieList from "./MovieList";
     export default {
         data: () => ({
             search_mode: false,
@@ -57,6 +59,8 @@
             search: ''
         }),
         components: {
+            appMovieList: MovieList,
+
         },
         created () {
             this.$store.dispatch('get_movies');

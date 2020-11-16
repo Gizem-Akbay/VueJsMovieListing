@@ -1,6 +1,6 @@
 <template>
-    <div class="">
-        <appNavbar :search_mode.sync="search_mode"></appNavbar>
+    <div>
+        <appSidebar :search_mode.sync="search_mode"></appSidebar>
         <div class="pusher">
             <div v-if="$store.getters.is_loading" class="ui active dimmer">
                 <div class="ui loader"></div>
@@ -8,7 +8,7 @@
             <transition name="fade">
                 <div v-show="search_mode" class="search-bar">
                     <div class="ui massive icon input">
-                        <i @click="search_mode = false;"></i>
+                        <i @click="search_mode = false;" class="fas fa-times-circle"></i>
                         <input class="search-input" v-model="search" type="text" placeholder="Search movie..">
                     </div>
                 </div>
@@ -20,7 +20,7 @@
     </div>
 </template>
 <script>
-    import Navbar from "./Navbar";
+    import Sidebar from "./Sidebar";
     import Search from "./Search";
     import MovieList from "./MovieList";
     import Footer from "./Footer";
@@ -31,7 +31,7 @@
             search: ''
         }),
         components: {
-            appNavbar: Navbar,
+            appSidebar: Sidebar,
             appSearch: Search,
             appMovieList: MovieList,
             appFooter: Footer

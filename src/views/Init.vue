@@ -1,14 +1,14 @@
 <template>
     <div>
-        <appSlider></appSlider>
+        <appMain></appMain>
     </div>
 </template>
 <script>
-    import Slider from "./Slider";
+    import Main from "./Main";
     export default {
     name: 'Home',
         components: {
-            appSlider:Slider
+            appMain:Main
         }
     }
 </script>
